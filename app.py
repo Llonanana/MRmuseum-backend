@@ -32,7 +32,7 @@ def translate(translateRequest: TranslateRequest):
         'text': translateRequest.query,
         'target_language': translateRequest.lang
     }
-    response = requests.post('http://140.119.19.21:5001/api/translate', json=request)
+    response = requests.post('http://140.119.19.195:5001/api/translate', json=request)
 
     return JSONResponse(content=response.json())
 
@@ -50,7 +50,7 @@ def ask_AI(generateRequest: GenerateRequest):
         'is_rag': True
     }
         
-    response = requests.post('http://140.119.19.21:5001/api/generate', json=query)
+    response = requests.post('http://140.119.19.195:5001/api/generate', json=query)
     
     return JSONResponse(content=response.json().get('response'))
 
@@ -71,7 +71,7 @@ def interact_NPC_controller(NPCrequest: NPCRequest):
         'is_rag': NPCrequest.is_rag
     }
     
-    response = requests.post('http://140.119.19.21:5001/api/npc/ask', json=request)
+    response = requests.post('http://140.119.19.195:5001/api/npc/ask', json=request)
     
     return JSONResponse(content=response.json().get('response'))
     
