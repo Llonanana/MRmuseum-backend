@@ -10,6 +10,7 @@ from controllers.exhibit.time import time_router
 from controllers.exhibit.exhibit import exhibit_router
 from controllers.interaction import interaction_router
 from controllers.questionnaire import questionnaire_router
+from controllers.photo import photo_router
 
 app = create_app()
 app.include_router(visitor_router)
@@ -18,6 +19,7 @@ app.include_router(time_router)
 app.include_router(exhibit_router)
 app.include_router(interaction_router)
 app.include_router(questionnaire_router)
+app.include_router(photo_router)
 
 @app.get('/')
 def index():
