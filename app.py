@@ -2,6 +2,7 @@ import requests
 import uvicorn
 from pydantic import BaseModel
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from __init__ import create_app
 from controllers.visitor import visitor_router
@@ -13,6 +14,7 @@ from controllers.questionnaire import questionnaire_router
 from controllers.photo import photo_router
 
 app = create_app()
+app.mount('/static', StaticFiles(directory='static'), name='static')
 app.include_router(visitor_router)
 app.include_router(area_router)
 app.include_router(time_router)
